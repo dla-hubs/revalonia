@@ -9,7 +9,7 @@
 
 # OS files
 Thumbs.db
-.DS_StoreDS_Store
+.DS_Store
 
 .env
 
