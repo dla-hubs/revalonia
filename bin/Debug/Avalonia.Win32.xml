@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Avalonia.Win32</name>
+    </assembly>
+    <members>
+        <member name="T:Avalonia.Win32.Input.Imm32InputMethod">
+            <summary>
+            A Windows input method editor based on Windows Input Method Manager (IMM32).
+            </summary>
+        </member>
+        <member name="M:Avalonia.Win32.Input.KeyInterop.IsExtended(System.Int32)">
+            <summary>
+            Indicates whether the key is an extended key, such as the right-hand ALT and CTRL keys.
+            According to https://docs.microsoft.com/en-us/windows/win32/inputdev/wm-keydown.
+            </summary>
+        </member>
+        <member name="M:Avalonia.Win32.Interop.TaskBarList.MarkFullscreen(System.IntPtr,System.Boolean)">
+            <summary>
+            Ported from https://github.com/chromium/chromium/blob/master/ui/views/win/fullscreen_handler.cc
+            </summary>
+            <param name="hwnd">The window handle.</param>
+            <param name="fullscreen">Fullscreen state.</param>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.ClipboardFormat.CF_TEXT">
+            <summary>
+            Text format. Each line ends with a carriage return/linefeed (CR-LF) combination. A null character signals the end of the data. Use this format for ANSI text.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.ClipboardFormat.CF_BITMAP">
+            <summary>
+            A handle to a bitmap
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.ClipboardFormat.CF_DIB">
+            <summary>
+            A memory object containing a BITMAPINFO structure followed by the bitmap bits.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.ClipboardFormat.CF_UNICODETEXT">
+            <summary>
+            Unicode text format. Each line ends with a carriage return/linefeed (CR-LF) combination. A null character signals the end of the data.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.ClipboardFormat.CF_HDROP">
+            <summary>
+            A handle to type HDROP that identifies a list of files. 
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.WINDOWPLACEMENT.Length">
+            <summary>
+            The length of the structure, in bytes. Before calling the GetWindowPlacement or SetWindowPlacement functions, set this member to sizeof(WINDOWPLACEMENT).
+            <para>
+            GetWindowPlacement and SetWindowPlacement fail if this member is not set correctly.
+            </para>
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.WINDOWPLACEMENT.Flags">
+            <summary>
+            Specifies flags that control the position of the minimized window and the method by which the window is restored.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.WINDOWPLACEMENT.ShowCmd">
+            <summary>
+            The current show state of the window.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.WINDOWPLACEMENT.MinPosition">
+            <summary>
+            The coordinates of the window's upper-left corner when the window is minimized.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.WINDOWPLACEMENT.MaxPosition">
+            <summary>
+            The coordinates of the window's upper-left corner when the window is maximized.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.WINDOWPLACEMENT.NormalPosition">
+            <summary>
+            The window's coordinates when the window is in the restored position.
+            </summary>
+        </member>
+        <member name="P:Avalonia.Win32.Interop.UnmanagedMethods.WINDOWPLACEMENT.Default">
+            <summary>
+            Gets the default (empty) value.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.TouchInputFlags.TOUCHEVENTF_MOVE">
+            <summary>
+            Movement has occurred. Cannot be combined with TOUCHEVENTF_DOWN.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.TouchInputFlags.TOUCHEVENTF_DOWN">
+            <summary>
+            The corresponding touch point was established through a new contact. Cannot be combined with TOUCHEVENTF_MOVE or TOUCHEVENTF_UP.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.TouchInputFlags.TOUCHEVENTF_UP">
+            <summary>
+            A touch point was removed.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.TouchInputFlags.TOUCHEVENTF_INRANGE">
+            <summary>
+            A touch point is in range. This flag is used to enable touch hover support on compatible hardware. Applications that do not want support for hover can ignore this flag.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.TouchInputFlags.TOUCHEVENTF_PRIMARY">
+            <summary>
+            Indicates that this TOUCHINPUT structure corresponds to a primary contact point. See the following text for more information on primary touch points.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.TouchInputFlags.TOUCHEVENTF_NOCOALESCE">
+            <summary>
+            When received using GetTouchInputInfo, this input was not coalesced.
+            </summary>
+        </member>
+        <member name="F:Avalonia.Win32.Interop.UnmanagedMethods.TouchInputFlags.TOUCHEVENTF_PALM">
+            <summary>
+            The touch event came from the user's palm.
+            </summary>
+        </member>
+        <member name="T:Avalonia.Win32.TrayIconImpl.CustomWindowsMessage">
+            <summary>
+            Custom Win32 window messages for the NotifyIcon
+            </summary>
+        </member>
+        <member name="P:Avalonia.Win32.Win32Platform.WindowsVersion">
+            <summary>
+            Gets the actual WindowsVersion. Same as the info returned from RtlGetVersion.
+            </summary>
+        </member>
+        <member name="T:Avalonia.Win32.WindowImpl">
+            <summary>
+            Window implementation for Win32 platform.
+            </summary>
+        </member>
+        <member name="M:Avalonia.Win32.WindowImpl.SetFullScreen(System.Boolean)">
+            <summary>
+            Ported from https://github.com/chromium/chromium/blob/master/ui/views/win/fullscreen_handler.cc
+            Method must only be called from inside UpdateWindowProperties.
+            </summary>
+            <param name="fullscreen"></param>
+        </member>
+        <member name="M:Avalonia.Win32.WindowImpl.SetExtendClientAreaTitleBarHeightHint(System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="P:Avalonia.Win32.WindowImpl.IsClientAreaExtendedToDecorations">
+            <inheritdoc/>
+        </member>
+        <member name="P:Avalonia.Win32.WindowImpl.ExtendClientAreaToDecorationsChanged">
+            <inheritdoc/>
+        </member>
+        <member name="P:Avalonia.Win32.WindowImpl.NeedsManagedDecorations">
+            <inheritdoc/>
+        </member>
+        <member name="P:Avalonia.Win32.WindowImpl.ExtendedMargins">
+            <inheritdoc/>
+        </member>
+        <member name="P:Avalonia.Win32.WindowImpl.OffScreenMargin">
+            <inheritdoc/>
+        </member>
+        <member name="P:Avalonia.Win32.WindowImpl.AcrylicCompensationLevels">
+            <inheritdoc/>
+        </member>
+        <member name="T:Avalonia.Win32PlatformOptions">
+            <summary>
+            Platform-specific options which apply to Windows.
+            </summary>
+        </member>
+        <member name="P:Avalonia.Win32PlatformOptions.UseDeferredRendering">
+            <summary>
+            Deferred renderer would be used when set to true. Immediate renderer when set to false. The default value is true.
+            </summary>
+            <remarks>
+            Avalonia has two rendering modes: Immediate and Deferred rendering.
+            Immediate re-renders the whole scene when some element is changed on the scene. Deferred re-renders only changed elements.
+            </remarks>
+        </member>
+        <member name="P:Avalonia.Win32PlatformOptions.AllowEglInitialization">
+            <summary>
+            Enables ANGLE for Windows. For every Windows version that is above Windows 7, the default is true otherwise it's false.
+            </summary>
+            <remarks>
+            GPU rendering will not be enabled if this is set to false.
+            </remarks>
+        </member>
+        <member name="P:Avalonia.Win32PlatformOptions.EnableMultitouch">
+            <summary>
+            Enables multitouch support. The default value is true.
+            </summary>
+            <remarks>
+            Multitouch allows a surface (a touchpad or touchscreen) to recognize the presence of more than one point of contact with the surface at the same time.
+            </remarks>
+        </member>
+        <member name="P:Avalonia.Win32PlatformOptions.OverlayPopups">
+            <summary>
+            Embeds popups to the window when set to true. The default value is false.
+            </summary>
+        </member>
+        <member name="P:Avalonia.Win32PlatformOptions.UseWgl">
+            <summary>
+            Avalonia would try to use native Widows OpenGL when set to true. The default value is false.
+            </summary>
+        </member>
+        <member name="P:Avalonia.Win32PlatformOptions.UseWindowsUIComposition">
+            <summary>
+            Render Avalonia to a Texture inside the Windows.UI.Composition tree.
+            </summary>
+            <remarks>
+            Supported on Windows 10 build 16299 and above. Ignored on other versions.
+            This is recommended if you need to use AcrylicBlur or acrylic in your applications.
+            </remarks>
+        </member>
+        <member name="P:Avalonia.Win32PlatformOptions.CompositionBackdropCornerRadius">
+            <summary>
+            When <see cref="P:Avalonia.Win32PlatformOptions.UseWindowsUIComposition"/> enabled, create rounded corner blur brushes
+            If set to null the brushes will be created using default settings (sharp corners)
+            This can be useful when you need a rounded-corner blurred Windows 10 app, or borderless Windows 11 app
+            </summary>
+        </member>
+    </members>
+</doc>

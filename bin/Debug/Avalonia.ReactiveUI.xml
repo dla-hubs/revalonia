@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Avalonia.ReactiveUI</name>
+    </assembly>
+    <members>
+        <member name="M:Avalonia.ReactiveUI.AppBuilderExtensions.UseReactiveUI``1(``0)">
+            <summary>
+            Initializes ReactiveUI framework to use with Avalonia. Registers Avalonia 
+            scheduler, an activation for view fetcher, a template binding hook. Remember
+            to call this method if you are using ReactiveUI in your application.
+            </summary>
+        </member>
+        <member name="T:Avalonia.ReactiveUI.AutoDataTemplateBindingHook">
+            <summary>
+            AutoDataTemplateBindingHook is a binding hook that checks ItemsControls
+            that don't have DataTemplates, and assigns a default DataTemplate that
+            loads the View associated with each ViewModel.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.AutoDataTemplateBindingHook.ExecuteHook(System.Object,System.Object,System.Func{ReactiveUI.IObservedChange{System.Object,System.Object}[]},System.Func{ReactiveUI.IObservedChange{System.Object,System.Object}[]},ReactiveUI.BindingDirection)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Avalonia.ReactiveUI.AutoSuspendHelper">
+            <summary>
+            A ReactiveUI AutoSuspendHelper which initializes suspension hooks for
+            Avalonia applications. Call its constructor in your app's composition root,
+            before calling the RxApp.SuspensionHost.SetupDefaultSuspendResume method.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.AutoSuspendHelper.#ctor(Avalonia.Controls.ApplicationLifetimes.IApplicationLifetime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Avalonia.ReactiveUI.AutoSuspendHelper"/> class.
+            </summary>
+            <param name="lifetime">Pass in the Application.ApplicationLifetime property.</param>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.AutoSuspendHelper.OnFrameworkInitializationCompleted">
+            <summary>
+            Call this method in your App.OnFrameworkInitializationCompleted method.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.AutoSuspendHelper.Dispose">
+            <summary>
+            Disposes internally stored observers.
+            </summary>
+        </member>
+        <member name="T:Avalonia.ReactiveUI.AvaloniaActivationForViewFetcher">
+            <summary>
+            Determines when Avalonia IVisuals get activated.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.AvaloniaActivationForViewFetcher.GetAffinityForView(System.Type)">
+            <summary>
+            Returns affinity for view.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.AvaloniaActivationForViewFetcher.GetActivationForView(ReactiveUI.IActivatableView)">
+            <summary>
+            Returns activation observable for activatable Avalonia view.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.AvaloniaActivationForViewFetcher.GetActivationForWindowBase(Avalonia.Controls.WindowBase)">
+            <summary>
+            Listens to Opened and Closed events for Avalonia windows.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.AvaloniaActivationForViewFetcher.GetActivationForVisual(Avalonia.VisualTree.IVisual)">
+            <summary>
+            Listens to AttachedToVisualTree and DetachedFromVisualTree 
+            events for Avalonia IVisuals.
+            </summary>
+        </member>
+        <member name="T:Avalonia.ReactiveUI.ReactiveUserControl`1">
+            <summary>
+            A ReactiveUI <see cref="T:Avalonia.Controls.UserControl"/> that implements the <see cref="T:ReactiveUI.IViewFor`1"/> interface and
+            will activate your ViewModel automatically if the view model implements <see cref="T:ReactiveUI.IActivatableViewModel"/>.
+            When the DataContext property changes, this class will update the ViewModel property with the new DataContext
+            value, and vice versa.
+            </summary>
+            <typeparam name="TViewModel">ViewModel type.</typeparam>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.ReactiveUserControl`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Avalonia.ReactiveUI.ReactiveUserControl`1"/> class.
+            </summary>
+        </member>
+        <member name="P:Avalonia.ReactiveUI.ReactiveUserControl`1.ViewModel">
+            <summary>
+            The ViewModel.
+            </summary>
+        </member>
+        <member name="T:Avalonia.ReactiveUI.ReactiveWindow`1">
+            <summary>
+            A ReactiveUI <see cref="T:Avalonia.Controls.Window"/> that implements the <see cref="T:ReactiveUI.IViewFor`1"/> interface and will
+            activate your ViewModel automatically if the view model implements <see cref="T:ReactiveUI.IActivatableViewModel"/>. When
+            the DataContext property changes, this class will update the ViewModel property with the new DataContext value,
+            and vice versa.
+            </summary>
+            <typeparam name="TViewModel">ViewModel type.</typeparam>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.ReactiveWindow`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Avalonia.ReactiveUI.ReactiveWindow`1"/> class.
+            </summary>
+        </member>
+        <member name="P:Avalonia.ReactiveUI.ReactiveWindow`1.ViewModel">
+            <summary>
+            The ViewModel.
+            </summary>
+        </member>
+        <member name="T:Avalonia.ReactiveUI.RoutedViewHost">
+            <summary>
+            This control hosts the View associated with ReactiveUI RoutingState,
+            and will display the View and wire up the ViewModel whenever a new
+            ViewModel is navigated to. Nested routing is also supported.
+            </summary>
+            <remarks>
+            <para>
+            ReactiveUI routing consists of an IScreen that contains current
+            RoutingState, several IRoutableViewModels, and a platform-specific
+            XAML control called RoutedViewHost.
+            </para>
+            <para>
+            RoutingState manages the ViewModel navigation stack and allows
+            ViewModels to navigate to other ViewModels. IScreen is the root of
+            a navigation stack; despite the name, its views don't have to occupy
+            the whole screen. RoutedViewHost monitors an instance of RoutingState,
+            responding to any changes in the navigation stack by creating and
+            embedding the appropriate view.
+            </para>
+            <para>
+            Place this control to a view containing your ViewModel that implements
+            IScreen, and bind IScreen.Router property to RoutedViewHost.Router property.
+            <code>
+            <![CDATA[
+            <rxui:RoutedViewHost
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Router="{Binding Router}">
+                <rxui:RoutedViewHost.DefaultContent>
+                    <TextBlock Text="Default Content"/>
+                </rxui:RoutedViewHost.DefaultContent>
+            </rxui:RoutedViewHost>
+            ]]>
+            </code>
+            </para>
+            <para>
+            See <see href="https://reactiveui.net/docs/handbook/routing/">
+            ReactiveUI routing documentation website</see> for more info.
+            </para>
+            </remarks>
+        </member>
+        <member name="F:Avalonia.ReactiveUI.RoutedViewHost.RouterProperty">
+            <summary>
+            <see cref="T:Avalonia.AvaloniaProperty"/> for the <see cref="P:Avalonia.ReactiveUI.RoutedViewHost.Router"/> property.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.RoutedViewHost.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Avalonia.ReactiveUI.RoutedViewHost"/> class.
+            </summary>
+        </member>
+        <member name="P:Avalonia.ReactiveUI.RoutedViewHost.Router">
+            <summary>
+            Gets or sets the <see cref="T:ReactiveUI.RoutingState"/> of the view model stack.
+            </summary>
+        </member>
+        <member name="P:Avalonia.ReactiveUI.RoutedViewHost.ViewLocator">
+            <summary>
+            Gets or sets the ReactiveUI view locator used by this router.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.RoutedViewHost.NavigateToViewModel(System.Object)">
+            <summary>
+            Invoked when ReactiveUI router navigates to a view model.
+            </summary>
+            <param name="viewModel">ViewModel to which the user navigates.</param>
+        </member>
+        <member name="T:Avalonia.ReactiveUI.TransitioningContentControl">
+            <summary>
+            A ContentControl that animates the transition when its content is changed.
+            </summary>
+        </member>
+        <member name="F:Avalonia.ReactiveUI.TransitioningContentControl.PageTransitionProperty">
+            <summary>
+            <see cref="T:Avalonia.AvaloniaProperty"/> for the <see cref="P:Avalonia.ReactiveUI.TransitioningContentControl.PageTransition"/> property.
+            </summary>
+        </member>
+        <member name="F:Avalonia.ReactiveUI.TransitioningContentControl.DefaultContentProperty">
+            <summary>
+            <see cref="T:Avalonia.AvaloniaProperty"/> for the <see cref="P:Avalonia.ReactiveUI.TransitioningContentControl.DefaultContent"/> property.
+            </summary>
+        </member>
+        <member name="P:Avalonia.ReactiveUI.TransitioningContentControl.PageTransition">
+            <summary>
+            Gets or sets the animation played when content appears and disappears.
+            </summary>
+        </member>
+        <member name="P:Avalonia.ReactiveUI.TransitioningContentControl.DefaultContent">
+            <summary>
+            Gets or sets the content displayed whenever there is no page currently routed.
+            </summary>
+        </member>
+        <member name="P:Avalonia.ReactiveUI.TransitioningContentControl.Content">
+            <summary>
+            Gets or sets the content with animation.
+            </summary>
+        </member>
+        <member name="P:Avalonia.ReactiveUI.TransitioningContentControl.Avalonia#Styling#IStyleable#StyleKey">
+            <summary>
+            TransitioningContentControl uses the default ContentControl 
+            template from Avalonia default theme.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.TransitioningContentControl.UpdateContentWithTransition(System.Object)">
+            <summary>
+            Updates the content with transitions.
+            </summary>
+            <param name="content">New content to set.</param>
+        </member>
+        <member name="T:Avalonia.ReactiveUI.ViewModelViewHost">
+            <summary>
+            This content control will automatically load the View associated with
+            the ViewModel property and display it. This control is very useful
+            inside a DataTemplate to display the View associated with a ViewModel.
+            </summary>
+        </member>
+        <member name="F:Avalonia.ReactiveUI.ViewModelViewHost.ViewModelProperty">
+            <summary>
+            <see cref="T:Avalonia.AvaloniaProperty"/> for the <see cref="P:Avalonia.ReactiveUI.ViewModelViewHost.ViewModel"/> property.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.ViewModelViewHost.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Avalonia.ReactiveUI.ViewModelViewHost"/> class.
+            </summary>
+        </member>
+        <member name="P:Avalonia.ReactiveUI.ViewModelViewHost.ViewModel">
+            <summary>
+            Gets or sets the ViewModel to display.
+            </summary>
+        </member>
+        <member name="P:Avalonia.ReactiveUI.ViewModelViewHost.ViewLocator">
+            <summary>
+            Gets or sets the view locator.
+            </summary>
+        </member>
+        <member name="M:Avalonia.ReactiveUI.ViewModelViewHost.NavigateToViewModel(System.Object)">
+            <summary>
+            Invoked when ReactiveUI router navigates to a view model.
+            </summary>
+            <param name="viewModel">ViewModel to which the user navigates.</param>
+        </member>
+    </members>
+</doc>

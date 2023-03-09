@@ -1,0 +1,16 @@
+.# Debug logs (npm, yarn)
+*.log
+
+# Editor artifacts
+.*.sw[a-z]
+*~
+.#*
+.vscode
+
+# OS files
+Thumbs.db
+.DS_StoreDS_Store
+
+.env
+
+packages/
