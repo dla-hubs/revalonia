@@ -1,4 +1,5 @@
 # Revalonia - _Implementing Avalonia UI Framework for Revit_
+# [DEPRECATED]
 
 ## Motivation
 
